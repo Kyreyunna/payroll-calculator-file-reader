@@ -35,16 +35,14 @@ public class PayRollCalculatorApp {
                 //^everything read from a file is a string
                 //^so you convert from int to string
                 String name = (fields[1]);
-                Double hoursWorked = Double.parseDouble(fields[2]);
-                Double payRate = Double.parseDouble(fields[3]);
+                double hoursWorked = Double.parseDouble(fields[2]);
+                //method to change into double
+                double payRate = Double.parseDouble(fields[3]);
                 Employee employee = new Employee(employeeId, name, hoursWorked, payRate);
-                System.out.println(employee);
+                employees.add(employee);
                 //system.out.println(employee.toCard());
 
-//                // Alternatively: Pattern.quote() returns a regular expression for the literal pipe
-//                String[] cities2 = input.split(Pattern.quote("|"));
-//                System.out.println(cities2[1]);
-//                line = bufferedReader.readLine();
+
             }
 
             bufferedReader.close();
@@ -52,13 +50,25 @@ public class PayRollCalculatorApp {
             System.out.println("Error reading transactions");
             e.printStackTrace();
         }
-        //need to do toRow first. also This is incomplete
+
+        printEmployees(employees);
+
+
+        printEmployeeTable(employees);
 
     }
-//        for(Employee employee : employees){
-//        System.out.println();(employee.toRow());
-//    }
 
+    private static void printEmployeeTable(List<Employee> employees) {
+        for (Employee employee : employees) {
+            System.out.println(employee.toRow());
+        }
+    }
+
+    private static void printEmployees(List<Employee> employees) {
+        for (Employee employee : employees) {
+            System.out.println(employee.toString());
+        }
+    }
 
 
 }

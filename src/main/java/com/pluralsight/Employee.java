@@ -63,5 +63,16 @@ public class Employee {
                 '}';
     }
     //toRow
+    public String toRow(){
+        return String.format("%-5d | %-20s |",employeeId, name, hoursWorked, payRate);
+    }
     //toCard
+    public String toCard(){
+        return String.format("------------------------------------\n" +
+                " ID          : %%d\n" +
+                " Name        : %%s\n" +
+                " Hours Worked: %%.1f\n" +
+                " Pay Rate    : $%%.2f\n" +
+                "------------------------------------", employeeId, name, hoursWorked, payRate);
+    }
 }
