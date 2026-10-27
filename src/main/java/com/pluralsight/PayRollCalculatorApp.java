@@ -15,6 +15,9 @@ public class PayRollCalculatorApp {
 
             // TODO: rewrite this loop so the read happens inside the while condition
             String line;
+            //eat the header row
+            String headerLine= bufferedReader.readLine();//ignore headrer
+            System.out.println(headerLine);
             while ((line = bufferedReader.readLine())!= null) {
 //                System.out.println(line);
                 //split into individual fields
@@ -22,11 +25,15 @@ public class PayRollCalculatorApp {
 
                 // fields is an array containing 4 strings
                 // [0] is Dallas, [1] is Ft. Worth, [2] is Austin
-                System.out.println(fields[0]);
-                System.out.println(fields[1]);
-                System.out.println(fields[2]);
-                System.out.println(fields[3]);
-                System.out.println("-------------");
+                int employeeId = Integer.parseInt(fields[0]);
+                //^everything read from a file is a string
+                //^so you convert from int to string
+                String name= (fields[1]);
+                Double hoursWorked= Double.parseDouble(fields[2]);
+                Double payRate = Double.parseDouble(fields[3]);
+                Employee employee = new Employee (employeeId,name,hoursWorked,payRate);
+                System.out.println(employee);
+                //system.out.println(employee.toCard());
 
 //                // Alternatively: Pattern.quote() returns a regular expression for the literal pipe
 //                String[] cities2 = input.split(Pattern.quote("|"));
