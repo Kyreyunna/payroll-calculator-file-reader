@@ -11,6 +11,11 @@ import java.util.regex.Pattern;
 public class PayRollCalculatorApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter ");
+        System.out.println("Enter ");
+        System.out.println("Enter ");
+        System.out.println("Enter ");
+
         List<Employee> employees = new ArrayList<>();
         //open file w file reader and wrap in buffer reader
         //read each line of text
